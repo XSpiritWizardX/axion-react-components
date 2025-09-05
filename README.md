@@ -1,3 +1,4 @@
+```json
 {
   "name": "axion-react-components",
   "version": "0.0.2",
@@ -45,7 +46,7 @@
   },
   "homepage": "https://github.com/XSpiritWizardX/axion-react-components#readme"
 }
-
+```
 
 
 
