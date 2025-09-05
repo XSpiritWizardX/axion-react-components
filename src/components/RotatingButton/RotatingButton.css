@@ -1,0 +1,69 @@
+.rotating-button {
+  position: relative;
+  padding: 0.8rem 1.8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  background: linear-gradient(90deg, #1e1eff, #00f0ff);
+  color: #fff;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.rotating-button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  border: 2px solid rgba(0, 255, 255, 0.7);
+  border-radius: 50%;
+  transform: rotate(0deg);
+  transition: transform 0.6s ease;
+  z-index: 0;
+}
+
+.rotating-button:hover::before {
+  transform: rotate(360deg);
+}
+
+.rotating-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6),
+              0 0 30px rgba(30, 30, 255, 0.4),
+              0 0 45px rgba(0, 255, 255, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.rotating-button:hover::after {
+  opacity: 1;
+}
+
+.rotating-button > * {
+  position: relative;
+  z-index: 1;
+}
+
+.rotating-button.primary {
+  background: linear-gradient(90deg, #1e1eff, #00f0ff);
+}
+
+.rotating-button.secondary {
+  background: linear-gradient(90deg, #ff00ff, #ff7fff);
+}
+
+.rotating-button.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

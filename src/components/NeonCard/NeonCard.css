@@ -1,0 +1,49 @@
+.neon-card {
+  background: rgba(10, 10, 30, 0.8);
+  border: 2px solid #00f0ff;
+  border-radius: 12px;
+  padding: 10.5rem;
+  margin: 1rem;
+  box-shadow:
+    0 0 10px rgba(0, 255, 255, 0.6),
+    0 0 20px rgba(0, 255, 255, 0.4),
+    0 0 30px rgba(30, 30, 255, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.neon-card:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.8),
+    0 0 30px rgba(0, 255, 255, 0.6),
+    0 0 40px rgba(30, 30, 255, 0.4);
+}
+
+.neon-card-title {
+  font-size: 1.5rem;
+  color: #00f0ff;
+  text-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff;
+  margin-bottom: 1rem;
+}
+
+.neon-card-content {
+  color: #fff;
+  font-size: 1rem;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 480px) {
+  .neon-card {
+    padding: 1.2rem;
+    margin: 0.8rem;
+  }
+
+  .neon-card-title {
+    font-size: 1.2rem;
+  }
+
+  .neon-card-content {
+    font-size: 0.95rem;
+  }
+}

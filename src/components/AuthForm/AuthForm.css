@@ -1,0 +1,112 @@
+.auth-form-container {
+  width: 90%;
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1e1eff, #00f0ff, #6a0dad);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3), 0 0 40px rgba(30, 30, 255, 0.2);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-family: 'Orbitron', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.auth-form-title {
+  text-align: center;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.input-container {
+  position: relative;
+}
+
+/* Inputs */
+.auth-form input {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.auth-form input:focus {
+  border-color: #00f0ff;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.6),
+              0 0 20px rgba(30, 30, 255, 0.4);
+}
+
+.auth-form input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Floating labels */
+.auth-form label {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  transition: 0.3s ease all;
+  font-size: 1rem;
+}
+
+.auth-form input:focus + label,
+.auth-form input:not(:placeholder-shown) + label {
+  top: -0.6rem;
+  left: 0.8rem;
+  font-size: 0.75rem;
+  color: #00f0ff;
+  text-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff;
+}
+
+/* RotatingButton adjustments for mobile */
+.rotating-button {
+  width: 100%;
+  padding: 1rem 0;
+  font-size: 1.1rem;
+  border-radius: 10px;
+}
+
+/* Fully responsive for small screens */
+@media screen and (max-width: 480px) {
+  .auth-form-container {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .auth-form-title {
+    font-size: 1.8rem;
+  }
+
+  .auth-form input {
+    padding: 1.2rem; /* bigger padding */
+    font-size: 1.1rem; /* bigger text */
+    border-radius: 12px;
+  }
+
+  .auth-form label {
+    font-size: 0.9rem; /* slightly bigger floating label */
+  }
+
+  .rotating-button {
+    font-size: 1.2rem; /* bigger button text */
+    padding: 1.2rem 0;  /* bigger button height */
+    border-radius: 12px;
+  }
+}

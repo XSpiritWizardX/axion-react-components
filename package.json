@@ -1,0 +1,59 @@
+{
+  "name": "axion-react-components",
+  "version": "0.0.1",
+  "private": false,
+  "type": "module",
+  "main": "src/index.js",
+  "module": "src/index.js",
+  "files": [
+    "src/components",
+    "src/index.js"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^3.1.0",
+    "vite": "^4.4.9"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "@types/react": "^18.2.7",
+    "@types/react-dom": "^18.2.4",
+    "eslint": "^9.33.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/XSpiritWizardX/axion-react-components.git"
+  },
+  "keywords": [
+    "react",
+    "components",
+    "ui",
+    "neon",
+    "axion",
+    "button",
+    "card",
+    "login",
+    "signup"
+  ],
+  "author": "Dustin Bovee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/XSpiritWizardX/axion-react-components/issues"
+  },
+  "homepage": "https://github.com/XSpiritWizardX/axion-react-components#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
