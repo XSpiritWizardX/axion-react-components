@@ -1,58 +1,8 @@
-```json
-{
-  "name": "axion-react-components",
-  "version": "0.0.2",
-  "private": false,
-  "type": "module",
-  "main": "src/index.js",
-  "module": "src/index.js",
-  "files": [
-    "src/components",
-    "src/index.js"
-  ],
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@vitejs/plugin-react": "^3.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "vite": "^4.4.9"
-  },
-  "peerDependencies": {
-    "react": "^18.0.0 || ^19.0.0",
-    "react-dom": "^18.0.0 || ^19.0.0"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.33.0",
-    "@types/react": "^18.2.7",
-    "@types/react-dom": "^18.2.4",
-    "eslint": "^9.33.0",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.20",
-    "globals": "^16.3.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/XSpiritWizardX/axion-react-components.git"
-  },
-  "author": "Dustin Bovee",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/XSpiritWizardX/axion-react-components/issues"
-  },
-  "homepage": "https://github.com/XSpiritWizardX/axion-react-components#readme"
-}
-```
-
 
 
 # Axion React Components
 
-**Axion** — Artificial eXecution & Intelligence for Orchestration Nexus
+**Axion** — Artificial eXecution Intelligence and Orchestration Nexus
 A futuristic, neon-styled React component library built for **modern apps**.
 
 ---
@@ -81,39 +31,93 @@ npm install git+ssh://git@github.com/XSpiritWizardX/axion-react-components.git
 
 ### Import Components Example
 
+
+## AXION GRID
+
 ```js
-    import { RotatingButton, NeonCard, LoginForm, SignupForm } from 'axion-react-components';
+    import { Grid} from 'axion-react-components';
 
 ```
 
 ```jsx
-<RotatingButton
-  label="Click Me"
-  onRotatingButtonClick={() => alert('Button clicked!')}
-  variant="primary"
+// //// single axion grid
+
+<Grid
+  items={6}
+  columns={3}
+  cardBgColor="#22263bff"
+  cardBorderColor="hsl(190, 90%, 60%)"
+  cardHoverBgColor="#3a3535ff"
+  cardTextColor="#ffffff"
+  spotHSL="200 90% 60%" //spotlight color
+  children={[ // this is the contents of the grid...
+    <div>Custom Content 1</div>,
+    <div>Custom Content 2</div>,
+    <div>Custom Content 3</div>,
+    <div>Custom Content 4</div>,
+    <div>Custom Content 5</div>,
+    <div>Custom Content 6</div>,
+  ]}
 />
 
 
-<NeonCard
-  title="Axion Card"
-  onClick={() => alert('Card clicked!')}
->
-  This is the content of the NeonCard.
-</NeonCard>
+// //// nested axion grid with different spotlight colors
 
-
-<LoginForm
-  onLogin={(data) => console.log('Login data:', data)}
+<Grid
+  items={2}
+  columns={2}
+  cardBgColor="#22263bff"
+  cardBorderColor="hsl(200, 90%, 60%)"
+  cardHoverBgColor="#3a3535ff"
+  cardTextColor="#fff"
+  spotHSL="200 90% 60%" // cyan spotlight
+  children={[
+    <div>
+      Nested 1
+      <Grid
+        items={3}
+        columns={1}
+        cardBgColor="#22263bff"
+        cardBorderColor="hsl(300, 80%, 60%)"
+        cardHoverBgColor="#3a2f32ff"
+        cardTextColor="#fff"
+        spotHSL="300 80% 60%" // purple spotlight
+        children={[
+          <div>n nested custom card 1</div>
+          <div>n nested custom card 2</div>
+          <div>n nested custom card 3</div>
+        ]}
+      />
+    </div>,
+    <div>Nested 2</div>
+  ]}
 />
-
-
-<SignupForm
-  onSignup={(data) => console.log('Signup data:', data)}
-/>
-
-
-
 ```
+| Prop               | Type          | Default         | Description                                                                                 |
+| ------------------ | ------------- | --------------- | ------------------------------------------------------------------------------------------- |
+| `items`            | `number`      | `9`             | Number of cards to render.                                                                  |
+| `columns`          | `number`      | `3`             | Number of columns in the grid.                                                              |
+| `cardBgColor`      | `string`      | `var(--panel)`  | Background color of each card. Accepts hex, rgb(a), or gradients.                           |
+| `cardBorderColor`  | `string`      | `var(--accent)` | Border color of each card.                                                                  |
+| `cardHoverBgColor` | `string`      | `var(--panel)`  | Background color of a card when hovered.                                                    |
+| `cardTextColor`    | `string`      | `var(--text)`   | Text color of card content.                                                                 |
+| `spotHSL`          | `string`      | `"190 90% 60%"` | Spotlight HSL color affecting the border glow. Supports nested grids with different colors. |
+| `children`         | `ReactNode[]` | `undefined`     | Optional content for each card. If not provided, default `Card X` text is rendered.         |
+
+
+![Axion Grid](https://res.cloudinary.com/dl6ls3rgu/image/upload/v1757302854/Screenshot_2025-09-07_232332_epa9yu.png "Axion Grid")
+
+
+![Axion Grid 2](https://res.cloudinary.com/dl6ls3rgu/image/upload/v1757302854/Screenshot_2025-09-07_222851_lfyuv5.png "Axion Grid 2")
+
+
+
+![Axion grid 3](https://res.cloudinary.com/dl6ls3rgu/image/upload/v1757303003/Screenshot_2025-09-07_234310_gcwcmd.png "Axion Grid 3")
+
+## AXION BUTTON
+
+still working on this
+
 
 ## Development
 * Run dev server
@@ -133,19 +137,7 @@ npm run lint
 ```
 
 
-## Folder Structure
 
-```css
-src/
-└─ components/
-   ├─ RotatingButton/
-   ├─ NeonCard/
-   └─ AuthForm/
-       ├─ LoginForm.jsx
-       └─ SignupForm.jsx
-src/index.js   # exports all components
-
-```
 
 ## Contributing
 1. Fork the repository

@@ -1,0 +1,88 @@
+:root {
+  --spot-alpha: 0.7;
+  --spot-fade: 30vmin;
+  --bw: 6px;
+  --mx: -9999;
+  --my: -9999;
+
+  --bg: hsl(220 15% 7%);
+  --panel: hsl(220 15% 10%);
+  --text: hsl(0, 0%, 100%);
+  --muted: hsl(220 10% 65% / 0.85);
+  --border-base: hsl(210 10% 28% / 0.6);
+  --accent: hsl(190 90% 60%);
+}
+
+.grid {
+  display: grid;
+  gap: 18px;
+}
+
+.card {
+  position: relative;
+  border-radius: 16px;
+  overflow: clip;
+  padding: 18px;
+  min-height: 150px;
+  transition: background 0.3s ease;
+  color: var(--text); /* default text color */
+}
+
+.card > * {
+  position: relative;
+  z-index: 1; /* ensure it sits above the hover background */
+}
+
+
+/* Dynamic hover background using proximity */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: var(--hover-bg-color);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  mix-blend-mode: multiply; /* <- allows text to stay visible */
+}
+
+/* Glow border effect */
+.glow-border {
+  position: relative;
+}
+
+.glow-border::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at calc(var(--mx) * 1px) calc(var(--my) * 1px),
+    hsl(var(--spot-hsl) / var(--spot-alpha)) 0%,
+    transparent var(--spot-fade)
+  );
+  background-attachment: fixed;
+  padding: var(--bw);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+/* Show hover background based on proximity */
+.card:hover::before {
+  opacity: 1;
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
